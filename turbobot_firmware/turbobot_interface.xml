@@ -1,0 +1,9 @@
+<library path="turbobot_firmware">
+    <class name="turbobot_firmware/TurbobotInterface"
+      type="turbobot_firmware::TurbobotInterface"
+      base_class_type="hardware_interface::SystemInterface">
+      <description>
+        turbobot Hardware Interface
+      </description>
+    </class>
+  </library>

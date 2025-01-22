@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="turbobot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:arg name="is_sim" default="true"/>
+
+  <!-- Include Gazebo Parameters -->
+  <xacro:include filename="$(find turbobot_description)/urdf/turbobot_gazebo.xacro" />
+ 
+  <!-- Include ros2_control Plugins -->
+  <xacro:include filename="$(find turbobot_description)/urdf/turbobot_ros2_control.xacro" />
+
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0106412381739105 0.000371303474620305 0.0284727132515347"
+        rpy="0 0 0" />
+      <!-- <mass value="0.583253612923317" />  -->
+        <mass value="0.283253612923317" />
+      <inertia
+        ixx="0.000960505011963156"
+        ixy="-4.12988181300668E-08"
+        ixz="3.77111370068846E-06"
+        iyy="0.00227790053475017"
+        iyz="-1.95556214978318E-07"
+        izz="0.0031105853441281" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turbobot_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turbobot_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="left_front_wheel_link">
+    <inertial>
+      <origin
+        xyz="0.000111982737798819 8.35469957105595E-11 0.00621009180993898"
+        rpy="0 0 0" />
+      <mass
+        value="0.0351743502617622" />
+      <inertia
+        ixx="1.52365341420312E-05"
+        ixy="-2.67407411208008E-10"
+        ixz="-3.47881429691997E-14"
+        iyy="1.52373719903188E-05"
+        iyz="-1.03520438935228E-13"
+        izz="2.57855713061517E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turbobot_description/meshes/left_front_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turbobot_description/meshes/left_front_wheel_link.STL" />
+      </geometry>
+    </collision> -->
+    <collision>
+      <origin xyz="0 0.0 0" rpy="1.57 0 0" />
+      <geometry>
+        <sphere radius="0.033"/>
+      </geometry>
+    </collision>
+    <!-- <collision>
+            <origin xyz="0 0 0" rpy="1.57 0 0" />
+            <geometry>
+                <cylinder radius="0.033" length="0.02"/>
+            </geometry>
+        </collision> -->
+  </link>
+
+  <joint
+    name="left_front_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.054789 0.094013 0.014388"
+      rpy="-1.5708 -1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_front_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+    <!-- <dynamics
+      damping="0.1"
+      friction="0.1" /> -->
+  </joint>
+
+  <link
+    name="left_back_wheel_link">
+    <inertial>
+      <origin
+        xyz="0.000111984234280757 7.10155073635477E-10 0.00621009181067783"
+        rpy="0 0 0" />
+      <mass
+        value="0.0351743510827554" />
+      <inertia
+        ixx="1.52365341420312E-05"
+        ixy="-2.67407411208008E-10"
+        ixz="3.47881429691997E-14"
+        iyy="1.52373719903188E-05"
+        iyz="1.03520438935228E-13"
+        izz="2.57855713061517E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turbobot_description/meshes/left_back_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turbobot_description/meshes/left_back_wheel_link.STL" />
+      </geometry>
+    </collision> -->
+    <collision>
+      <origin xyz="0 0.0 0" rpy="1.57 0 0" />
+      <geometry>
+        <sphere radius="0.033"/>
+      </geometry>
+    </collision>
+    <!-- <collision>
+            <origin xyz="0 0 0" rpy="1.57 0 0" />
+            <geometry>
+                <cylinder radius="0.033" length="0.02"/>
+            </geometry>
+        </collision> -->
+  </link>
+
+  <joint
+    name="left_back_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.082396 0.094013 0.014388"
+      rpy="-1.5708 -1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_back_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+    <!-- <dynamics
+      damping="0.1"
+      friction="0.1" /> -->
+  </joint>
+
+  <link
+    name="right_front_wheel_link">
+    <inertial>
+      <origin
+        xyz="-2.96807439736924E-11 -9.20698883413382E-05 -0.00621009190374883"
+        rpy="0 0 0" />
+      <mass
+        value="0.0351743518709708" />
+      <inertia
+        ixx="1.52365341420312E-05"
+        ixy="2.67407411208008E-10"
+        ixz="3.47881429691997E-14"
+        iyy="1.52373719903188E-05"
+        iyz="1.03520438935228E-13"
+        izz="2.57855713061517E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turbobot_description/meshes/right_front_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turbobot_description/meshes/right_front_wheel_link.STL" />
+      </geometry>
+    </collision> -->
+    <collision>
+      <origin xyz="0 0.0 0" rpy="1.57 0 0" />
+      <geometry>
+        <sphere radius="0.033"/>
+      </geometry>
+    </collision>
+    <!-- <collision>
+            <origin xyz="0 0 0" rpy="1.57 0 0" />
+            <geometry>
+                <cylinder radius="0.033" length="0.02"/>
+            </geometry>
+        </collision> -->
+  </link>
+
+  <joint
+    name="right_front_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.054789 -0.094013 0.014388"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_front_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+    <!-- <dynamics
+      damping="0.1"
+      friction="0.1" /> -->
+  </joint>
+
+  <link
+    name="right_back_wheel_link">
+    <inertial>
+      <origin
+        xyz="-8.30065682855263E-10 -0.000111983818113622 -0.0062100919465217"
+        rpy="0 0 0" />
+      <mass
+        value="0.0351743514571784" />
+      <inertia
+        ixx="1.52365341420312E-05"
+        ixy="-2.67407411208008E-10"
+        ixz="3.47881429691997E-14"
+        iyy="1.52373719903188E-05"
+        iyz="-1.03520438935228E-13"
+        izz="2.57855713061517E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turbobot_description/meshes/right_back_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <!-- <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turbobot_description/meshes/right_back_wheel_link.STL" />
+      </geometry>
+    </collision> -->
+    <collision>
+      <origin xyz="0 0.0 0" rpy="1.57 0 0" />
+      <geometry>
+        <sphere radius="0.033"/>
+      </geometry>
+    </collision>
+    <!-- <collision>
+            <origin xyz="0 0 0" rpy="1.57 0 0" />
+            <geometry>
+                <cylinder radius="0.033" length="0.02"/>
+            </geometry>
+        </collision> -->
+  </link>
+
+  <joint
+    name="right_back_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.082396 -0.094013 0.014388"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_back_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+    <!-- <dynamics
+      damping="0.1"
+      friction="0.1" /> -->
+  </joint>
+  
+  <link
+    name="lidar_link">
+    <inertial>
+      <origin
+        xyz="-0.0071639 0.00032796 -0.021434"
+        rpy="0 0 0" />
+      <mass
+        value="0.16924" />
+      <inertia
+        ixx="5.6815E-05"
+        ixy="4.5952E-07"
+        ixz="6.5489E-07"
+        iyy="6.6984E-05"
+        iyz="-2.6131E-08"
+        izz="0.00011065" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turbobot_description/meshes/lidar_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.99608 0.39608 0.10588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turbobot_description/meshes/lidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="-0.042663 -0.0027565 0.1345"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link
+    name="IMU_link">
+    <inertial>
+      <origin
+        xyz="0.00033795 0.0002439 -0.0013042"
+        rpy="0 0 0" />
+      <mass
+        value="0.00035125" />
+      <inertia
+        ixx="9.4569E-09"
+        ixy="-2.6879E-13"
+        ixz="1.4438E-24"
+        iyy="5.2353E-09"
+        iyz="-5.2816E-25"
+        izz="1.4636E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turbobot_description/meshes/IMU_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.96471 0.96471 0.95294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://turbobot_description/meshes/IMU_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="IMU_joint"
+    type="fixed">
+    <origin
+      xyz="0.022697 -0.00036685 0.082"
+      rpy="0 0 0.0078865" />
+    <parent
+      link="base_link" />
+    <child
+      link="IMU_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  
+</robot>

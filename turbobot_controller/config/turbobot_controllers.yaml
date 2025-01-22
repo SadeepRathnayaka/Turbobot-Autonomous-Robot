@@ -1,0 +1,81 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100 # Hz
+    # use_sim_time: true
+
+    turbobot_controller:
+      type: diff_drive_controller/DiffDriveController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+
+turbobot_controller:
+  ros__parameters:
+    type        : diff_drive_controller/DiffDriveController
+    use_stamped_vel: true
+    left_wheel_names  : ["left_front_wheel_joint", "left_back_wheel_joint" ]
+    right_wheel_names : ["right_front_wheel_joint", "right_back_wheel_joint" ]
+
+    # wheels_per_side (int)
+    # Number of wheels on each side of the robot.
+    # This is important to take the wheels slip into account when multiple wheels on each side are present. 
+    # If there are more wheels then control signals for each side, you should enter number for control signals. 
+    # For example, Husky has two wheels on each side, but they use one control signal, in this case ‘1’ is the correct value of the parameter.
+
+    # Default: 0
+    wheels_per_side: 1
+
+    publish_rate: 50.0               # default: 50
+    pose_covariance_diagonal : [0.001, 0.001, 1.0e-3, 1.0e-3, 1.0e-3, 0.01]
+    twist_covariance_diagonal: [0.001, 0.001, 1.0e-3, 1.0e-3, 1.0e-3, 0.01]
+
+    wheel_separation : 0.188
+    wheel_radius : 0.033
+
+    wheel_separation_multiplier: 1.0
+    left_wheel_radius_multiplier: 1.0
+    right_wheel_radius_multiplier: 1.0
+
+    # Velocity commands timeout [s], default 0.5
+    cmd_vel_timeout: 0.5
+
+    # Base frame_id
+    base_frame_id: base_link #default: base_link
+
+    # Publish limited velocity
+    publish_limited_velocity: true
+
+    # Publish wheel data
+    publish_wheel_data: true
+
+    # Publish to TF directly or not
+    enable_odom_tf: true
+
+    # Velocity and acceleration limits
+    # Whenever a min_* is unspecified, default to -max_*
+    linear:
+      x:
+        has_velocity_limits    : true
+        max_velocity           : 0.5  # m/s
+        min_velocity           : -0.5 # m/s
+        has_acceleration_limits: true
+        max_acceleration       : 0.5  # m/s^2
+        min_acceleration       : -0.5 # m/s^2
+        has_jerk_limits        : false
+        max_jerk               : 5.0  # m/s^3
+    angular:
+      z:
+        has_velocity_limits    : true
+        max_velocity           : 1.7  # rad/s
+        has_acceleration_limits: true
+        max_acceleration       : 1.5  # rad/s^2
+        has_jerk_limits        : false
+        max_jerk               : 2.5  # rad/s^3
+
+# joint_state_broadcaster:
+#   ros_parameters:
+#     type: joint_state_broadcaster/JointStateBroadcaster
+#     publish_rate: 50.0  # Adjust to your desired frequency (in Hz)
+
+
