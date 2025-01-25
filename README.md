@@ -96,32 +96,6 @@ Future improvements and features:
 
 ---
 
-## How to Run
-
-### Prerequisites
-
-1. Install [ROS2](https://docs.ros.org/en/rolling/Installation.html).
-2. Clone this repository:
-   ```bash
-   git clone https://github.com/your_username/four_wheel_diff_drive_robot.git
-   ```
-3. Build the workspace:
-   ```bash
-   colcon build
-   ```
-
-### Running the Robot
-
-1. Launch the ROS2 control node:
-   ```bash
-   ros2 launch turbobot_control control.launch.py
-   ```
-2. Launch the bringup package:
-   ```bash
-   ros2 launch turbobot_bringup bringup.launch.py
-   ```
-
----
 
 ## Contributing
 
