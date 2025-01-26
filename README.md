@@ -26,12 +26,8 @@ The robot chassis and components were designed in SolidWorks with a focus on rob
 - **Motors and Wheels**: Equipped with four 12V DC motors with encoders for precise movement and control.
 - **Sensors**: Design accommodates IMU and encoders for accurate localization.
 
-![SolidWorks Design](images/solidworks_design_diff_drive.png)
-
----
-
-
 https://github.com/user-attachments/assets/6d96dd51-13d0-4719-9e16-4e17023ca4d6
+---
 
 
 ## ROS2 Framework Configuration
@@ -46,7 +42,12 @@ The robot is integrated with the ROS2 framework to enable advanced robotic funct
 - **Differential Drive Controller**: Configured the ROS2 control package to manage differential drive mechanics and handle wheel commands.
 - **Joint State Publishing**: Ensures real-time feedback of wheel states for visualization and control.
 
+
+https://github.com/user-attachments/assets/6af6fd65-e95c-474f-9c42-16ca92db2a46
+
+https://github.com/user-attachments/assets/eaf015e2-bc32-4cbf-b950-43cc5cfae7bc
 ---
+
 
 ## ROS2 Localization with EKF
 
