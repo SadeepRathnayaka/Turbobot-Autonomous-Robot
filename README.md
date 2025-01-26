@@ -1,6 +1,12 @@
+
+https://github.com/user-attachments/assets/3c76466b-e391-4844-906c-7c05e12edf5a
 # Turbobot-Autonomous-Robot
 
 This repository showcases a four-wheel differential drive robot designed and built from scratch. It includes the 3D model design, ROS2 framework integration, localization using EKF, firmware implementation, and hardware bringup. Below are the key aspects of the project:
+
+
+https://github.com/user-attachments/assets/a37dd53c-2390-4a10-aca8-deebb67d79c1
+
 
 ---
 
@@ -12,9 +18,7 @@ This repository showcases a four-wheel differential drive robot designed and bui
 4. [Turbobot Firmware Package](#turbobot-firmware-package)
 5. [Turbobot Bringup Package](#turbobot-bringup-package)
 6. [TODO](#todo)
-7. [Media](#media)
-8. [How to Run](#how-to-run)
-9. [Contributing](#contributing)
+7. [Contributing](#contributing)
 
 ---
 
@@ -26,9 +30,10 @@ The robot chassis and components were designed in SolidWorks with a focus on rob
 - **Motors and Wheels**: Equipped with four 12V DC motors with encoders for precise movement and control.
 - **Sensors**: Design accommodates IMU and encoders for accurate localization.
 
----
 
 https://github.com/user-attachments/assets/6d96dd51-13d0-4719-9e16-4e17023ca4d6
+
+---
 
 
 ## ROS2 Framework Configuration
@@ -67,7 +72,14 @@ The firmware developed for the robot provides seamless communication between har
 - **Serial Communication**: Reads commands from ROS2 control via serial interface.
 - **Encoder Feedback**: Sends wheel encoder data back to ROS2 control for real-time updates.
 
-[Video of Firmware Functionality](videos/turbobot_firmware_demo.mp4)
+
+
+https://github.com/user-attachments/assets/950cfb9a-0e33-45bd-b91e-5be3077a2346
+
+
+
+https://github.com/user-attachments/assets/f371da3b-ce15-4cfa-9a51-53758e793328
+
 
 ---
 
@@ -78,6 +90,10 @@ The bringup package initializes and visualizes the robot’s hardware or simulat
 - **Hardware Setup**: Launch file to start the physical robot.
 - **Simulated Setup**: RViz2 integration to visualize and test the robot in a simulated environment.
 
+
+https://github.com/user-attachments/assets/525a8be4-f4b9-4b29-8b2c-a98935a81687
+
+
 ---
 
 ## TODO
@@ -86,20 +102,6 @@ Future improvements and features:
 
 1. Add a LiDAR sensor for environment scanning.
 2. Integrate `nav2` and `slam_toolbox` for autonomous navigation and SLAM.
-
----
-
-## Media
-
-### Images
-
-- **SolidWorks Design**
-  ![SolidWorks Design](images/solidworks_design_diff_drive.png)
-
-### Videos
-
-- [Firmware Functionality](videos/turbobot_firmware_demo.mp4)
-- [Localization with EKF](videos/ekf_localization_demo.mp4)
 
 ---
 
