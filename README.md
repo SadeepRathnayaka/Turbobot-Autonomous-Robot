@@ -1,5 +1,4 @@
 
-https://github.com/user-attachments/assets/3c76466b-e391-4844-906c-7c05e12edf5a
 # Turbobot-Autonomous-Robot
 
 This repository showcases a four-wheel differential drive robot designed and built from scratch. It includes the 3D model design, ROS2 framework integration, localization using EKF, firmware implementation, and hardware bringup. Below are the key aspects of the project:
