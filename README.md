@@ -30,6 +30,10 @@ The robot chassis and components were designed in SolidWorks with a focus on rob
 
 ---
 
+
+https://github.com/user-attachments/assets/6d96dd51-13d0-4719-9e16-4e17023ca4d6
+
+
 ## ROS2 Framework Configuration
 
 The robot is integrated with the ROS2 framework to enable advanced robotic functionalities. The configuration is divided into:
