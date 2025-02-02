@@ -15,7 +15,7 @@ class LidarDataPublisher(Node):
         self.DATA_LENGTH = 7  # Data length: angle, speed, distance 1-4, checksum
         self.MAX_DISTANCE = 3.0  # Maximum distance in meters
         self.MIN_DISTANCE = 0.1  # Minimum distance in meters
-        self.port = '/dev/pts/11'  # Specify serial port
+        self.port = '/dev/ttyUSB0'  # Specify serial port
         self.BAUDRATE = 115200
         self.MAX_DATA_SIZE = 360  # Number of data points (1 degree resolution)
         self.COUNT = 0
@@ -40,7 +40,7 @@ class LidarDataPublisher(Node):
     def publish_scan(self):
         scan = LaserScan()
         scan.header.stamp = self.get_clock().now().to_msg()
-        scan.header.frame_id = 'laser_frame'
+        scan.header.frame_id = 'lidar_link'
         scan.angle_min = 0.0
         scan.angle_max = 2 * math.pi
         scan.angle_increment = math.pi / 180.0  # 1 degree in radians

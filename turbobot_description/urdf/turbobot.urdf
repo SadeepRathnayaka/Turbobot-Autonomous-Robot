@@ -387,6 +387,13 @@
       xyz="0 0 0" />
   </joint>
 
+  <link name="lidar_tf_link"/>
+  <joint name="lidar_tf_joint" type="fixed">
+    <parent link="lidar_link"/>
+    <child link="lidar_tf_link"/>
+    <origin xyz="0 0 0" rpy="3.14 0 0"/>
+  </joint>
+
   <link
     name="IMU_link">
     <inertial>
